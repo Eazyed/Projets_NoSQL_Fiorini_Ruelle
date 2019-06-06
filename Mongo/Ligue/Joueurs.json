@@ -1,0 +1,162 @@
+[
+  {
+    "Label": "Joueur",
+    "nom": "Moussa Konate",
+    "date de naissance": 1993,
+    "taille": 180,
+    "poids": 78,
+    "poste": "ATT"
+  },
+  {
+    "Label": "Joueur",
+    "nom": "Regis Gurtner",
+    "date de naissance": 1987,
+    "taille": 181,
+    "poids": 75,
+    "poste": "GAR"
+  },
+  {
+    "Label": "Joueur",
+    "nom": "Thomas Monconduit",
+    "date de naissance": 1990,
+    "taille": 178,
+    "poids": 75,
+    "poste": "MIL"
+  },
+  {
+    "Label": "Joueur",
+    "nom": "Cheick Timite",
+    "date de naissance": 1998,
+    "taille": 180,
+    "poids": 80,
+    "poste": "ATT"
+  },
+  {
+    "Label": "Joueur",
+    "nom": "Mathieu Bodmer",
+    "date de naissance": 1983,
+    "taille": 190,
+    "poids": 90,
+    "poste": "DEF"
+  },
+  {
+    "Label": "Joueur",
+    "nom": "Ludovic Butelle",
+    "date de naissance": 1990,
+    "taille": 195,
+    "poids": 95,
+    "poste": "GAR"
+  },
+  {
+    "Label": "Joueur",
+    "nom": "Stephane Bahoken",
+    "date de naissance": 1995,
+    "taille": 185,
+    "poids": 87,
+    "poste": "ATT"
+  },
+  {
+    "Label": "Joueur",
+    "nom": "Vincent Manceau",
+    "date de naissance": 1992,
+    "taille": 184,
+    "poids": 80,
+    "poste": "DEF"
+  },
+  {
+    "Label": "Joueur",
+    "nom": "Flavien Tait",
+    "date de naissance": 1986,
+    "taille": 170,
+    "poids": 71,
+    "poste": "MIL"
+  },
+  {
+    "Label": "Joueur",
+    "nom": "Baptiste Santamaria",
+    "date de naissance": 1989,
+    "taille": 169,
+    "poids": 70,
+    "poste": "MIL"
+  },
+  {
+    "Label": "Joueur",
+    "nom": "Cesc Fabregas",
+    "date de naissance": 1988,
+    "taille": 180,
+    "poids": 81,
+    "poste": "MIL"
+  },
+  {
+    "Label": "Joueur",
+    "nom": "Radamel Falcao",
+    "date de naissance": 1990,
+    "taille": 186,
+    "poids": 87,
+    "poste": "ATT"
+  },
+  {
+    "Label": "Joueur",
+    "nom": "Seydou Sy",
+    "date de naissance": 1998,
+    "taille": 192,
+    "poids": 80,
+    "poste": "GAR"
+  },
+  {
+    "Label": "Joueur",
+    "nom": "Kamil Glik",
+    "date de naissance": 1986,
+    "taille": 187,
+    "poids": 90,
+    "poste": "DEF"
+  },
+  {
+    "Label": "Joueur",
+    "nom": "Aleksandr Golovin",
+    "date de naissance": 1995,
+    "taille": 176,
+    "poids": 74,
+    "poste": "MIL"
+  },
+  {
+    "Label": "Joueur",
+    "nom": "Loic Perrin",
+    "date de naissance": 1986,
+    "taille": 186,
+    "poids": 90,
+    "poste": "DEF"
+  },
+  {
+    "Label": "Joueur",
+    "nom": "Stephane Ruffier",
+    "date de naissance": 1989,
+    "taille": 187,
+    "poids": 91,
+    "poste": "GAR"
+  },
+  {
+    "Label": "Joueur",
+    "nom": "Wahbi Khazri",
+    "date de naissance": 1993,
+    "taille": 172,
+    "poids": 74,
+    "poste": "ATT"
+  },
+  {
+    "Label": "Joueur",
+    "nom": "Gabriel Silva",
+    "date de naissance": 1995,
+    "taille": 181,
+    "poids": 82,
+    "poste": "DEF"
+  },
+  {
+    "Label": "Joueur",
+    "nom": "Pierre-Yves Polomat",
+    "date de naissance": 1996,
+    "taille": 183,
+    "poids": 81,
+    "poste": "DEF"
+  }
+]

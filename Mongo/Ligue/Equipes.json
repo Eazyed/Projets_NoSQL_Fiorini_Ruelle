@@ -1,0 +1,30 @@
+[
+  {
+	"Label" : "Equipe",
+    "nom": "Amiens SC",
+    "couleurs": [ "gris", "noir" ],
+    "stade": "Stade de la Licorne",
+    "effectifs": [ "Moussa Konate", "Regis Gurtner", "Thomas Monconduit", "Cheick Timite", "Mathieu Bodmer" ]
+  },
+  {
+  	"Label" : "Equipe",
+    "nom": "Angers SCO",
+    "couleurs": [ "blanc", "noir" ],
+    "stade": "Stade Raymond-Kopa",
+    "effectifs": [ "Ludovic Butelle", "Stephane Bahoken", "Vincent Manceau", "Flavien Tait", "Baptiste Santamaria" ]
+  },
+  {
+  	"Label" : "Equipe",
+    "nom": "AS Monaco",
+    "couleurs": [ "rouge", "blanc" ],
+    "stade": "Stade Louis II",
+    "effectifs": [ "Cesc Fabregas", "Radamel Falcao", "Seydou Sy", "Kamil Glik", "Aleksandr Golovin" ]
+  },
+  {
+  	"Label" : "Equipe",
+    "nom": "AS Saint-Etienne",
+    "couleurs": [ "vert", "blanc" ],
+    "stade": "Stade Geoffroy-Guichard",
+    "effectifs": [ "Loic Perrin", "Stephane Ruffier", "Wahbi Khazri", "Gabriel Silva", "Pierre-Yves Polomat" ]
+  }
+]

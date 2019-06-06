@@ -1,0 +1,8 @@
+Projet MongoDB :
+Les données sont situées dans "Ligue", le script est situé dans le dossier scripts
+
+Pour exécuter le script il faut placer les deux dossiers sous \MongoDB\Server\4.0\data\db qui sera
+aussi le dossier de travail au niveau du shell. 
+Exécuter le script : load("scripts/loadingscript.js")
+
+Le script affiche pas mal d'informations et le js est commenté
