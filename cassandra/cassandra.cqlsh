@@ -1,0 +1,42 @@
+-- Code pour Cassandra
+
+-- On crée déjà le cluster pour la base
+CREATE KEYSPACE meteo
+  WITH REPLICATION = {
+    'class' : 'SimpleStrategy',
+    'replication_factor': 1
+  };
+
+USE meteo;
+
+CREATE TABLE IF NOT EXISTS station_meteo (
+  station_meteo_id uuid,
+  nom_station text,
+  PRIMARY KEY (station_meteo_id)
+);
+
+CREATE TABLE IF NOT EXISTS mesure (
+  mesure_id uuid,
+  station_meteo_id uuid,
+  longitude double,
+  latitude double,
+  temperature double,
+  humidite double,
+  added_date timestamp
+  PRIMARY KEY (mesure_id, station_meteo_id) -- La clé primaire est constitué de l'id de mesure et de la clé "étrangère" station_meteo_id
+);
+
+WITH CLUSTERING ORDER BY (added_date DESC, station_meteo_id ASC);
+
+INSERT INTO station_meteo (station_meteo_id, nom_station) VALUES 
+(9d4a1c1c-9393-11e9-adaa-3f44c7f98fd4, 'Station stéphanoise'), 
+(b90a38e2-9393-11e9-8c25-4fb29324af4f , 'Station nantaise')
+
+INSERT INTO mesure (mesure_id, longitude, latitude, temperature,  humidite, added_date) VALUES 
+(395a3808-9394-11e9-bed4-17b6f7287648, 9d4a1c1c-9393-11e9-adaa-3f44c7f98fd4, 45.4123285 , 4.4313439, 24.3, 0.123, 1561060813),
+(9d4a1c1c-9393-11e9-adaa-3f44c7f98fd4, 9d4a1c1c-9393-11e9-adaa-3f44c7f98fd4, 45.4123285 , 4.4313439, 20, 0.143, 1561060913),
+(eccabdfc-9396-11e9-b151-3f2946a6bfdf, 9d4a1c1c-9393-11e9-adaa-3f44c7f98fd4, 45.4123285 , 4.4313439, 32, 0.141, 1561061203),
+(f36a5d2a-9396-11e9-8468-cf5457383b36, 9d4a1c1c-9393-11e9-adaa-3f44c7f98fd4, 45.4123285 , 4.4313439, 18.2, 0.18, 1561061320)
+
+SELECT mesure_id, longitude, latitude, temperature,  humidite, added_date FROM mesure WHERE station_meteo_id = 9d4a1c1c-9393-11e9-adaa-3f44c7f98fd4 AND added_date > 1561060000 AND added_date < 1561147213
+-- Pour sélectionner une mesure entre une plage de temps donnée on utilise le timestamp qui correspond au nombre de secondes écoulées depuis le 1er janvier 1970. Dans ce cas il suffit de rechercher entre le temps t et t+ p avec p la période de temps que nous voulons.
