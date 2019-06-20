@@ -1,0 +1,102 @@
+sudo apt-get install build-essential 
+sudo apt-get install make
+sudo apt-get install gcc
+sudo apt-get install tcl
+
+// download redis 
+
+sudo tar xvzf redis-4.0.6.tar.gz
+
+cd redis-4.0.6/
+
+sudo make
+sudo make install
+
+// in a "data" directory 
+redis-server 
+
+// somewhere else
+redis-cli
+
+// commands
+keys *
+keys user*
+
+set key1 "hello"
+exists key1
+del key1
+exists key1
+
+set key1 "hello"
+expire key1 10
+ttl key1
+
+set key1 "hello"
+lpush key2 "hello"
+sadd key3 "hello"
+type key1
+type key2
+type key3
+
+get key1
+set key11 "world"
+mget key1 key11
+
+mset key111 "Bonjour" key1111 "tout le monde"
+mget key111 key1111
+
+set key1 0
+incr key1
+get key1
+incrby key1 10
+get key1
+decr key1
+decrby key1 5
+
+hset user:1 firstName "Lionel"
+hset user:1 lastName "Messi"
+hget user:1 firstName
+hmget user:1 firstName lastName
+hmset user:11 firstName "Mohamed" lastName "Salah"
+hkeys user:11
+hvals user:11
+hexists user:11 age
+hexists user:11 firstName
+hdel user:11 firstName
+
+lpush list:1 "elem1"
+lpush list:1 "elem2"
+lrange list:1 0 -1
+lpush list:1 "elem3"
+lrange list:1 0 1
+rpush list:1 "elem4"
+lrange list:1 2 -1
+lpop list:1
+rpop list:1
+rpoplpush list:1 list:2
+lrange list:1 0 -1
+lrange list:2 0 -1
+
+sadd set:1 "Hello"
+sadd set:1 "Hello"
+sadd set:1 "World"
+smembers set:1
+sadd set:1 "Goodbye"
+spop set:1
+spop set:1 2
+sinter set:1 set:2
+sunion set:1 set:2
+sdiff set:1 set:2
+
+zadd zset:1 1 "one"
+zadd zset:1 2 "two"
+zadd zset:1 3 "three"
+zrange zset:1 0 -1 withscores
+zrange zset:1 0 1 withscores
+zrangebyscore zset:1 -inf +inf
+zrangebyscore zset:1 (1 (3
+zrank zset:1 "three"
+zscore zset:1 "three"
+
+subscribe online_chat // terminal 1
+publish online_chat "le chat est ouvert" // terminal 2
