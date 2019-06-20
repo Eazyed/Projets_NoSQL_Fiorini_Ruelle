@@ -1,0 +1,26 @@
+
+HSET appel_1 id "e84d22b0-939b-11e9-9e1d-cb92bdf4c5c3"
+HSET appel_1 heure_appel "23h43"
+HSET appel_1 numero "0643782334"
+HSET appel_1 statut "Non affecté"
+HSET appel_1 duree 70
+HSET appel_1 operateur "SFR"
+HSET appel_1 description "Il s'agit de l'appel entre Marcel Pichard et Jean-Patrick Bruel"
+
+HSET appel_2 id "7dc04df0-93a0-11e9-ba6a-df2d6cd3038f"
+HSET appel_2 heure_appel "23h21"
+HSET appel_2 numero "0643455869"
+HSET appel_2 statut "Non affecté"
+HSET appel_2 duree 1302
+HSET appel_2 operateur "SFR"
+HSET appel_2 description "Il s'agit de l'appel entre Gertrude Ditixe et Philippe-Antoine Siudolide"
+
+-- On push les appels 1 et 2 dans la lste liste_appels
+
+LPUSH liste_appels appel_1
+LPUSH liste_appels appel_2
+
+-- Affection du statut "en cours" à l'appel n°2
+
+HSET appel_2 statut "En cours"
+
