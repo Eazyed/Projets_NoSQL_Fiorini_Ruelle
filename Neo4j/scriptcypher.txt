@@ -1,0 +1,170 @@
+
+// Requête d'insertion Utilisateur
+CREATE (a:Utilisateur {prenom: "Mathias" , nom:"Ruelle", age:20,skills : [".NET","C#","Azure","FunctionApp","Stream Analytics","Gremlin","MongoDB"]})
+CREATE (b:Utilisateur {prenom: "Etienne" , nom:"Dumontet", age:20,skills : [".NET","C#","Azure","PowerShell"]})
+CREATE (c:Utilisateur {prenom: "Remi" , nom:"Vanelle", age:21,skills : ["CSS","HTML","JS","SQL"]})
+CREATE (d:Utilisateur {prenom: "Victoria" , nom:"Vegas", age:21,skills : ["Redis","Cypher","SQL"]})
+CREATE (g:Utilisateur {prenom: "Aymeric" , nom:"Fiorini", age:21,skills : ["CSS","HTML","JS","SQL",".NET","PHP"]})
+CREATE (f:Utilisateur {prenom: "Quentin" , nom:"Thizy", age:21,skills : ["Bash","SQL","JS","HTML"]})
+
+
+//Requête insertion Entreprise
+CREATE (h:Entreprise {nom: "SWORD" , secteur_activite:"ESN", taille:"Grande",description : "Entreprise de Service Numerique basee sur Lyon"})
+CREATE (i:Entreprise {nom: "Casino" , secteur_activite:"Grande Distribution", taille:"Tres Grande",description : "Groupe de Grande Distribution base sur Saint-Etienne"})
+CREATE (j:Entreprise {nom: "Courbon Software" , secteur_activite:"ESN", taille:"Grande",description : "Entreprise de Service Numerique du groupe Vinci"})
+RETURN a,b,c,d,f,g,h,i,j;
+
+
+//Requêtes insertion relations A_Travaille_Pour
+MATCH (u:Utilisateur {nom :"Ruelle"})
+MATCH(c:Entreprise{nom:"SWORD"})
+CREATE (u)-[t:A_Travaille_Pour{Debut :"2018-09-01" ,Fin : "",Role : "Salarie"}]->(c)
+RETURN u,t,c;
+
+MATCH (u:Utilisateur {nom :"Dumontet"})
+MATCH(c:Entreprise{nom:"SWORD"})
+CREATE (u)-[t:A_Travaille_Pour{Debut :"2018-09-01" ,Fin : "",Role : "Salarie"}]->(c)
+RETURN u,t,c;
+
+MATCH (u:Utilisateur {nom :"Vanelle"})
+MATCH(c:Entreprise{nom:"Courbon Software"})
+CREATE (u)-[t:A_Travaille_Pour{Debut :"2018-09-01" ,Fin : "",Role : "Salarie"}]->(c)
+RETURN u,t,c;
+
+MATCH (u:Utilisateur {nom :"Thizy"})
+MATCH(c:Entreprise{nom:"Courbon Software"})
+CREATE (u)-[t:A_Travaille_Pour{Debut :"2018-09-01" ,Fin : "",Role : "Salarie"}]->(c)
+RETURN u,t,c;
+
+MATCH (u:Utilisateur {nom :"Fiorini"})
+MATCH(c:Entreprise{nom:"Casino"})
+CREATE (u)-[t:A_Travaille_Pour{Debut :"2018-09-01" ,Fin : "",Role : "Salarie"}]->(c)
+RETURN u,t,c;
+
+MATCH (u:Utilisateur {nom :"Vegas"})
+MATCH(c:Entreprise{nom:"Casino"})
+CREATE (u)-[t:A_Travaille_Pour{Debut :"2018-09-01" ,Fin : "",Role : "Salarie"}]->(c)
+RETURN u,t,c;
+
+MATCH (u:Utilisateur {nom :"Ruelle"})
+MATCH(c:Entreprise{nom:"Casino"})
+CREATE (u)-[t:A_Travaille_Pour{Debut :"2018-06-01" ,Fin : "2018-08-01",Role : "Salarie"}]->(c)
+RETURN u,t,c;
+
+MATCH (u:Utilisateur {nom :"Dumontet"})
+MATCH(c:Entreprise{nom:"Casino"})
+CREATE (u)-[t:A_Travaille_Pour{Debut :"2018-06-01" ,Fin : "2018-08-01",Role : "Salarie"}]->(c)
+RETURN u,t,c;
+
+
+
+//Requêtes insertion relations A_Travaille_Avec
+MATCH (u1:Utilisateur {nom :"Ruelle"})
+MATCH(u2:Utilisateur{nom:"Dumontet"})
+CREATE (u1)-[t:A_Travaille_Avec]->(u2)
+RETURN u1,t,u2;
+
+MATCH (u1:Utilisateur {nom :"Dumontet"})
+MATCH(u2:Utilisateur{nom:"Ruelle"})
+CREATE (u1)-[t:A_Travaille_Avec]->(u2)
+RETURN u1,t,u2;
+
+MATCH (u1:Utilisateur {nom :"Thizy"})
+MATCH(u2:Utilisateur{nom:"Vanelle"})
+CREATE (u1)-[t:A_Travaille_Avec]->(u2)
+RETURN u1,t,u2;
+
+MATCH (u1:Utilisateur {nom :"Vanelle"})
+MATCH(u2:Utilisateur{nom:"Thizy"})
+CREATE (u1)-[t:A_Travaille_Avec]->(u2)
+RETURN u1,t,u2;
+
+MATCH (u1:Utilisateur {nom :"Vegas"})
+MATCH(u2:Utilisateur{nom:"Fiorini"})
+CREATE (u1)-[t:A_Travaille_Avec]->(u2)
+RETURN u1,t,u2;
+
+MATCH (u1:Utilisateur {nom :"Fiorini"})
+MATCH(u2:Utilisateur{nom:"Vegas"})
+CREATE (u1)-[t:A_Travaille_Avec]->(u2)
+RETURN u1,t,u2;
+
+
+//Requêtes insertion relations Connait
+
+MATCH (u1:Utilisateur {nom :"Fiorini"})
+MATCH(u2:Utilisateur{nom:"Ruelle"})
+CREATE (u1)-[t:Connait]->(u2)
+RETURN u1,t,u2;
+
+MATCH (u1:Utilisateur {nom :"Vegas"})
+MATCH(u2:Utilisateur{nom:"Ruelle"})
+CREATE (u1)-[t:Connait]->(u2)
+RETURN u1,t,u2;
+
+
+MATCH (u1:Utilisateur {nom :"Fiorini"})
+MATCH(u2:Utilisateur{nom:"Vanelle"})
+CREATE (u1)-[t:Connait]->(u2)
+RETURN u1,t,u2;
+
+
+MATCH (u1:Utilisateur {nom :"Ruelle"})
+MATCH(u2:Utilisateur{nom:"Vanelle"})
+CREATE (u1)-[t:Connait]->(u2)
+RETURN u1,t,u2;
+
+MATCH (u1:Utilisateur {nom :"Fiorini"})
+MATCH(u2:Utilisateur{nom:"Thizy"})
+CREATE (u1)-[t:Connait]->(u2)
+RETURN u1,t,u2;
+
+
+
+//Creation des INDEX (pour faciliter les requêtes par nom)
+CREATE INDEX ON : Entreprise(nom);
+CREATE INDEX ON : Utilisateur(nom);
+
+//Requêtes de recherche par nom
+
+Match(u:Utilisateur{nom:"Ruelle"})
+return u;
+
+Match(u:Entreprise{nom:"Casino"})
+return u;
+
+
+//Requêtes de suggestion
+
+
+
+//Suggestion par connaissance de connaissance
+match(u1:Utilisateur)-[e1:Connait]->(u2:Utilisateur)-[e2:Connait]->(u3:Utilisateur)
+//U1 est notre utilisateur à qui on veut suggérer des connaissances : u2 représente les utilisateurs connu par u1. u3 représente les connaissances de u2
+
+where u3 <> u2 and u3 <> u1
+//On va filtrer les connaissances de u2 qui ne sont pas déjà connu de u1 (donc qui ne font pas parti des u2) et qui ne sont pas u1 lui-même
+
+return u3;
+//On récupère les suggestions possibles
+
+
+
+
+//Suggestion par date de contrat dans une entreprise
+
+match(u1:Utilisateur)-[a1:A_Travaille_Pour]->(e:Entreprise)<-[a2:A_Travaille_Pour]-(u2:Utilisateur)
+//u1 est notre utilisateur à qui on veut suggérer des connaissances, e, une entreprise pour laquelle il a travaillé. u2 représente tous les utilisateurs ayant travaillé pour l'entreprise
+
+
+where (a1.Debut<=a2.Fin AND a1.Debut>=a2.Debut) OR (a2.Debut<=a1.Fin AND a2.Debut>=a1.Debut) OR (a1.Debut>=a2.Debut AND a2.Fin=~'') AND u2<>u1
+//On filtre de manière à ce que les fenêtres défini par les dates de début et de fin se chevauchent
+
+return u2;
+//On retourne les utilisateurs à suggérer
+
+
+
+
+
+
